@@ -2,8 +2,8 @@ import { MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL } from 'game/constants';
 import { isSpawning, enoughSpawnEnergy, createCreep } from '../shared';
 
 const haulerCount = 3;
-const meleeCount = 6;
-const rangeCount = 3;
+const meleeCount = 3;
+const rangeCount = 6;
 const healerCount = 2;
 const rangeDefenderCount = 2;
 
@@ -19,14 +19,14 @@ export function spawnManager() {
         }
 
         if (ROLES.melee.length < meleeCount) {
-            const parts = [MOVE, MOVE, MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK];
+            const parts = [MOVE, ATTACK, MOVE, ATTACK, MOVE, ATTACK, MOVE, ATTACK, MOVE];
             if (!enoughSpawnEnergy(parts, spawn)) return;
             createCreep(parts, spawn, 'melee');
             return;
         }
 
         if (ROLES.range.length < rangeCount) {
-            const parts = [MOVE, MOVE, MOVE, RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK];
+            const parts = [MOVE, RANGED_ATTACK, MOVE, RANGED_ATTACK, MOVE, RANGED_ATTACK, MOVE];
             if (!enoughSpawnEnergy(parts, spawn)) return;
             createCreep(parts, spawn, 'range');
             return;

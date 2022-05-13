@@ -22,7 +22,7 @@ global.BODY_PARTS = {
     WORK: 100,
     CARRY: 50,
     ATTACK: 80,
-    RANGE: 150,
+    RANGED_ATTACK: 150,
     HEAL: 250,
     TOUGH: 10,
 };

@@ -9,9 +9,17 @@ export function rangeDefender(creep) {
                 creep.moveTo(nearstEnemy);
             }
         } else {
-            creep.moveTo(MY_SPAWNS[0].x + 5, MY_SPAWNS[0].y);
+            if (MY_SPAWNS[0].x == 5) {
+                creep.moveTo(MY_SPAWNS[0].x + 5, MY_SPAWNS[0].y);
+            } else {
+                creep.moveTo(MY_SPAWNS[0].x - 5, MY_SPAWNS[0].y);
+            }
         }
     } else {
-        creep.moveTo(MY_SPAWNS[0].x + 3, MY_SPAWNS[0].y);
+        if (MY_SPAWNS[0].x == 5) {
+            creep.moveTo(MY_SPAWNS[0].x + 5, MY_SPAWNS[0].y);
+        } else {
+            creep.moveTo(MY_SPAWNS[0].x - 5, MY_SPAWNS[0].y);
+        }
     }
 }
