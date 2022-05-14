@@ -7,7 +7,11 @@ export function melee(creep) {
         let nearstEnemy = findClosestByRange(creep, EN_CREEPS);
 
         if (getTicks() < 150 && getRange(creep, nearstEnemy) >= 20) {
-            creep.moveTo(MY_SPAWNS[0].x, MY_SPAWNS[0].y + 8);
+            if (MY_SPAWNS[0].x == 5) {
+                creep.moveTo(MY_SPAWNS[0].x + 5, MY_SPAWNS[0].y);
+            } else {
+                creep.moveTo(MY_SPAWNS[0].x - 5, MY_SPAWNS[0].y);
+            }
         } else {
             if (creep.attack(nearstEnemy) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(nearstEnemy);
@@ -15,7 +19,11 @@ export function melee(creep) {
         }
     } else {
         if (getTicks() < 150) {
-            creep.moveTo(MY_SPAWNS[0].x, MY_SPAWNS[0].y + 8);
+            if (MY_SPAWNS[0].x == 5) {
+                creep.moveTo(MY_SPAWNS[0].x + 5, MY_SPAWNS[0].y);
+            } else {
+                creep.moveTo(MY_SPAWNS[0].x - 5, MY_SPAWNS[0].y);
+            }
         } else {
             if (creep.attack(EN_SPAWNS[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(EN_SPAWNS[0]);

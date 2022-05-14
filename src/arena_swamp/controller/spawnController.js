@@ -2,7 +2,7 @@ import { MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL } from 'game/constants';
 import { isSpawning, enoughSpawnEnergy, createCreep } from '../../shared';
 
 const haulerCount = 2;
-const meleeCount = 3;
+const meleeCount = 4;
 const rangeCount = 6;
 const healerCount = 2;
 const rangeDefenderCount = 2;
