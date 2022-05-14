@@ -1,4 +1,4 @@
-import { isFirstTick } from '../common';
+import { isFirstTick } from '../shared';
 
 export function loop() {
     if (isFirstTick()) {

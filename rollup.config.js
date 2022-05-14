@@ -1,11 +1,9 @@
 // rollup config from screeps typescript starter project
-
 'use strict';
 
 import clear from 'rollup-plugin-clear';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
 import fg from 'fast-glob';
 
 let targetArena = '';
@@ -43,7 +41,6 @@ function getOptions(arenaSrc) {
             clear({ targets: targetArena === '' ? ['dist'] : [outDir] }), // If targeted build, only clear target sub-directory
             resolve({ rootDir: 'src' }),
             commonjs(),
-            terser(),
         ],
     };
     return options;

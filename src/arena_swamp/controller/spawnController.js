@@ -1,5 +1,5 @@
 import { MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL } from 'game/constants';
-import { isSpawning, enoughSpawnEnergy, createCreep } from '../shared';
+import { isSpawning, enoughSpawnEnergy, createCreep } from '../../shared';
 
 const haulerCount = 3;
 const meleeCount = 3;
@@ -7,7 +7,7 @@ const rangeCount = 6;
 const healerCount = 2;
 const rangeDefenderCount = 2;
 
-export function spawnManager() {
+export function spawnController() {
     MY_SPAWNS.forEach(spawn => {
         if (isSpawning(spawn)) return;
 
