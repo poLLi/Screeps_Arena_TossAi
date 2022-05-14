@@ -1,7 +1,7 @@
 import { MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL } from 'game/constants';
 import { isSpawning, enoughSpawnEnergy, createCreep } from '../../shared';
 
-const haulerCount = 3;
+const haulerCount = 2;
 const meleeCount = 3;
 const rangeCount = 6;
 const healerCount = 2;
@@ -12,7 +12,7 @@ export function spawnController() {
         if (isSpawning(spawn)) return;
 
         if (ROLES.hauler.length < haulerCount) {
-            const parts = [MOVE, MOVE, CARRY, CARRY];
+            const parts = [MOVE, CARRY];
             if (!enoughSpawnEnergy(parts, spawn)) return;
             createCreep(parts, spawn, 'hauler');
             return;

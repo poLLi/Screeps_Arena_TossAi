@@ -1,19 +1,23 @@
 import { StructureContainer } from 'game/prototypes';
-import { ERR_NOT_IN_RANGE, RESOURCE_ENERGY } from 'game/constants';
-import { getObjectsByPrototype } from 'game/utils';
+import { RESOURCE_ENERGY } from 'game/constants';
+import { getObjectsByPrototype, getRange } from 'game/utils';
 
 export function hauler(creep) {
-    const containers = getObjectsByPrototype(StructureContainer).filter(p => p.store[RESOURCE_ENERGY] > 0);
+    const container = creep.findClosestByRange(getObjectsByPrototype(StructureContainer).filter(p => p.store.getUsedCapacity(RESOURCE_ENERGY)));
 
-    if (creep.store[RESOURCE_ENERGY] == 0) {
-        const container = creep.findClosestByPath(containers);
-
-        if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(container);
+    if (creep.store.getUsedCapacity(RESOURCE_ENERGY)) {
+        if (getRange(creep, MY_SPAWNS[0]) == 1) {
+            creep.transfer(MY_SPAWNS[0], RESOURCE_ENERGY);
+            creep.moveTo(container, { range: 1 });
+        } else {
+            creep.moveTo(MY_SPAWNS[0], { range: 1 });
         }
     } else {
-        if (creep.transfer(MY_SPAWNS[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(MY_SPAWNS[0]);
+        if (getRange(creep, container) == 1) {
+            creep.withdraw(container, RESOURCE_ENERGY);
+            creep.moveTo(MY_SPAWNS[0], { range: 1 });
+        } else {
+            creep.moveTo(container, { range: 1 });
         }
     }
 }

@@ -1,5 +1,5 @@
 import { isFirstTick } from '../shared';
-import { creepsController } from './controller/creepsController';
+import { creepController } from './controller/creepController';
 import { spawnController } from './controller/spawnController';
 import '../shared/globals.js';
 
@@ -19,7 +19,7 @@ export function loop() {
     }
 
     spawnController();
-    creepsController();
+    creepController();
 
     let cpuUsed = getCpuTime();
     let limit = getTicks() === 1 ? arenaInfo.cpuTimeLimitFirstTick : arenaInfo.cpuTimeLimit;

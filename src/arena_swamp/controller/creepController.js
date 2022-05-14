@@ -4,7 +4,7 @@ import { range } from '../roles/range';
 import { healer } from '../roles/healer';
 import { rangeDefender } from '../roles/defender';
 
-export function creepsController() {
+export function creepController() {
     MY_CREEPS.forEach(creep => {
         switch (creep.role) {
             case 'hauler':
